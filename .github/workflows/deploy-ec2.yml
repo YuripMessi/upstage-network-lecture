@@ -21,7 +21,8 @@ jobs:
           script: |
             BRANCH="${{ github.ref_name }}"
             echo "Deploying branch: $BRANCH"
-            cd /home/ubuntu/workspace/upstage-network-lecture/upstage-network-lecture
+            cd ~/workspace/todo-repository
+            ./deploy.sh
 
             # 원격 브랜치 가져오기 및 체크아웃
             git fetch origin "$BRANCH"
@@ -29,4 +30,4 @@ jobs:
             git pull origin "$BRANCH"
 
             # 시작 스크립트 실행  
-            sh start.sh
+            sh deploy.sh
